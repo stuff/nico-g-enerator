@@ -19,7 +19,7 @@ class MemeGenerator {
   loadTextFromURL() {
     const urlParams = new URLSearchParams(window.location.search);
     const textParam = urlParams.get('text');
-    
+
     if (textParam) {
       // Decode and set the text from URL parameter
       this.textInput.value = decodeURIComponent(textParam);
@@ -39,7 +39,7 @@ class MemeGenerator {
       // Set canvas dimensions to match the loaded image
       this.canvas.width = this.baseImage.width;
       this.canvas.height = this.baseImage.height;
-      
+
       // Check if we have text from URL, otherwise use default
       const currentText = this.textInput.value.trim() || 'Your meme text here!';
       this.renderMeme(currentText);
