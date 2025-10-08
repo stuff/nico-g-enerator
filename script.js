@@ -49,6 +49,7 @@ class MemeGenerator {
       tempCtx.fillRect(0, 0, 600, 400);
       tempCtx.fillStyle = '#000000';
       tempCtx.font = "bold 24px 'Inter', Arial, sans-serif";
+      tempCtx.fontWeight = '700';
       tempCtx.textAlign = 'center';
       tempCtx.fillText('Image not found', 300, 200);
       this.baseImage.src = tempCanvas.toDataURL();
