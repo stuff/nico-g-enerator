@@ -12,7 +12,24 @@ class MemeGenerator {
   init() {
     this.createBaseImage();
     this.bindEvents();
+    this.loadTextFromURL();
     this.downloadBtn.disabled = true;
+  }
+
+  loadTextFromURL() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const textParam = urlParams.get('text');
+    
+    if (textParam) {
+      // Decode and set the text from URL parameter
+      this.textInput.value = decodeURIComponent(textParam);
+      // Trigger the meme rendering with the URL text
+      const text = this.textInput.value.trim() || 'Your meme text here!';
+      // We need to wait for the base image to load before rendering
+      if (this.baseImage && this.baseImage.complete) {
+        this.renderMeme(text);
+      }
+    }
   }
 
   createBaseImage() {
@@ -22,7 +39,10 @@ class MemeGenerator {
       // Set canvas dimensions to match the loaded image
       this.canvas.width = this.baseImage.width;
       this.canvas.height = this.baseImage.height;
-      this.renderMeme('Your meme text here!');
+      
+      // Check if we have text from URL, otherwise use default
+      const currentText = this.textInput.value.trim() || 'Your meme text here!';
+      this.renderMeme(currentText);
     };
     this.baseImage.onerror = () => {
       console.error('Failed to load nicoG.jpg');
