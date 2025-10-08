@@ -10,9 +10,9 @@ class MemeGenerator {
   }
 
   init() {
+    this.loadTextFromURL(); // Load URL text first
     this.createBaseImage();
     this.bindEvents();
-    this.loadTextFromURL();
     this.downloadBtn.disabled = true;
   }
 
@@ -23,12 +23,6 @@ class MemeGenerator {
     if (textParam) {
       // Decode and set the text from URL parameter
       this.textInput.value = decodeURIComponent(textParam);
-      // Trigger the meme rendering with the URL text
-      const text = this.textInput.value.trim() || 'Your meme text here!';
-      // We need to wait for the base image to load before rendering
-      if (this.baseImage && this.baseImage.complete) {
-        this.renderMeme(text);
-      }
     }
   }
 
