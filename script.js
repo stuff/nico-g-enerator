@@ -3,7 +3,6 @@ class MemeGenerator {
     this.canvas = document.getElementById('memeCanvas');
     this.ctx = this.canvas.getContext('2d');
     this.textInput = document.getElementById('memeText');
-    this.generateBtn = document.getElementById('generateBtn');
     this.downloadBtn = document.getElementById('downloadBtn');
 
     this.baseImage = null;
@@ -44,11 +43,6 @@ class MemeGenerator {
   }
 
   bindEvents() {
-    this.generateBtn.addEventListener('click', () => {
-      const text = this.textInput.value.trim() || 'Your meme text here!';
-      this.renderMeme(text);
-    });
-
     this.downloadBtn.addEventListener('click', () => {
       this.downloadMeme();
     });
@@ -107,18 +101,18 @@ class MemeGenerator {
     this.ctx.textBaseline = 'top';
 
     // Calculate font size based on text length
-    let fontSize = Math.max(32, Math.min(60, 500 / text.length));
+    let fontSize = Math.max(42, Math.min(60, 1000 / text.length));
     this.ctx.font = `bold ${fontSize}px 'Inter', Arial, sans-serif`;
 
     // Position text at the top
     const x = this.canvas.width / 2;
     const y = 60;
 
-    // Calculate max width for text wrapping (80% of canvas width)
-    const maxWidth = this.canvas.width * 0.8;
+    // Calculate max width for text wrapping (90% of canvas width)
+    const maxWidth = this.canvas.width * 0.9;
 
     // Wrap text into multiple lines
-    const lines = this.wrapText(text.toUpperCase(), maxWidth);
+    const lines = this.wrapText(text, maxWidth);
 
     // Calculate line height
     const lineHeight = fontSize * 1.2;
