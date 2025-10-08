@@ -86,6 +86,8 @@ class MemeGenerator {
       url.searchParams.delete('text');
     }
 
+    console.log(url);
+
     // Update URL without reloading the page
     window.history.replaceState({}, '', url);
   }
@@ -152,8 +154,8 @@ class MemeGenerator {
       const lineY = y + index * lineHeight;
 
       // Draw shadow first (slightly offset)
-      this.ctx.fillStyle = 'rgba(0, 0, 0, 0.5)';
-      this.ctx.fillText(line, x + 3, lineY + 3);
+      this.ctx.fillStyle = 'rgba(0, 0, 0, 0.9)';
+      this.ctx.fillText(line, x, lineY + 4);
 
       // Draw main text with stroke and fill
       this.ctx.strokeText(line, x, lineY);
