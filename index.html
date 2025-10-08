@@ -4,28 +4,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nico-G-enerator - Meme Generator</title>
-    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Nico-G-enerator</h1>
-            <p>Create memes with a single line of text!</p>
-        </header>
+    <h1>Nico-G-enerator</h1>
+    <p>Create memes with a single line of text!</p>
 
-        <div class="generator">
-            <div class="input-section">
-                <label for="memeText">Enter your meme text:</label>
-                <input type="text" id="memeText" placeholder="Your meme text here..." maxlength="50">
-                <button id="generateBtn">Generate Meme</button>
-                <button id="downloadBtn">Download Meme</button>
-            </div>
+    <label for="memeText">Enter your meme text:</label>
+    <input type="text" id="memeText" placeholder="Your meme text here..." maxlength="50">
+    <button id="generateBtn">Generate Meme</button>
+    <button id="downloadBtn">Download Meme</button>
 
-            <div class="canvas-section">
-                <canvas id="memeCanvas" width="600" height="400"></canvas>
-            </div>
-        </div>
-    </div>
+    <canvas id="memeCanvas" width="600" height="400"></canvas>
 
     <script src="script.js"></script>
 </body>
