@@ -79,13 +79,13 @@ class MemeGenerator {
   updateURL() {
     const text = this.textInput.value.trim();
     const url = new URL(window.location);
-    
+
     if (text) {
       url.searchParams.set('text', encodeURIComponent(text));
     } else {
       url.searchParams.delete('text');
     }
-    
+
     // Update URL without reloading the page
     window.history.replaceState({}, '', url);
   }
